@@ -221,4 +221,39 @@ public class AssociativeArray<K, V> {
         throw new KeyNotFoundException();
     } // find(K)
 
+    /*
+     * returns a String[] of all the current key values
+     */
+    public String[] getKeys(){
+        String[] strarr = new String[size];
+        for(int i = 0; i < size; i++){
+            strarr[i] = pairs[i].key.toString();
+            //System.out.println(strarr[i]);
+        }
+        
+        return strarr;
+    }
+
+    /*
+     * returns a String[] of all the current key values in the AA
+     */
+    public String[] getImageLocs(){
+        String[] strarr = new String[this.size];
+        
+        for(int i = 0; i < this.size; i++){
+            strarr[i] = (String) this.pairs[i].key;
+        }
+        return strarr;
+    }
+    /*
+     * returns a string[] of all the current values in the AA
+     */
+    public String[] getCategories(){
+        String[] strarr = new String[this.size];
+        for(int i = 0; i < this.size; i++){
+            strarr[i] = (String) this.pairs[i].value;
+        }
+        return strarr;
+    }
+
 } // class AssociativeArray
