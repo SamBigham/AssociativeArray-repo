@@ -252,6 +252,9 @@ public class AssociativeArray<K, V> {
         String[] strarr = new String[this.size];
         for(int i = 0; i < this.size; i++){
             strarr[i] = (String) this.pairs[i].value;
+            if (strarr[i].charAt(0) == ' '){
+                strarr[i] = strarr[i].substring(1, strarr[i].length());
+            }
         }
         return strarr;
     }
