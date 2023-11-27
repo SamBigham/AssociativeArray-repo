@@ -50,31 +50,31 @@ public class AssociativeArrayExperiments {
     try {
       s2s.get("a");
     } catch (Exception e) {
-    }
+    }//catch
     try {
       s2s.get("A");
     } catch (Exception e) {
-    }
+    }//catch
     s2s.remove("a");
     s2s.size();
     try {
       s2s.get("a");
     } catch (Exception e) {
-    }
+    }//catch
     try {
       s2s.get("A");
     } catch (Exception e) {
-    }
+    }//catch
     s2s.remove("aardvark");
     s2s.size();
     try {
       s2s.get("a");
     } catch (Exception e) {
-    }
+    }//catch
     try {
       s2s.get("A");
     } catch (Exception e) {
-    }
+    }//catch
   } // expreimentStringsToStrings
 
   /**
@@ -95,7 +95,7 @@ public class AssociativeArrayExperiments {
       try {
         b2b.get(BigInteger.valueOf(i));
       } catch (Exception e) {
-      }
+      }//catch
     } // for
     b2b.size();
 
@@ -110,7 +110,7 @@ public class AssociativeArrayExperiments {
       try {
         b2b.get(BigInteger.valueOf(i));
       } catch (Exception e) {
-      }
+      }//catch
     } // for
     b2b.size();
 
@@ -125,7 +125,7 @@ public class AssociativeArrayExperiments {
       try {
         b2b.get(BigInteger.valueOf(i));
       } catch (Exception e) {
-      }
+      }//catch
     } // for
     b2b.size();
   }

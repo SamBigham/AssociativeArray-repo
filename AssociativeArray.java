@@ -64,7 +64,7 @@ public class AssociativeArray<K, V> {
         AssociativeArray<K, V> aa = new AssociativeArray<>();
         for (int i = 0; i < size; i++) {
             aa.set(pairs[i].key, pairs[i].value);
-        }
+        }//for
         return aa;
     } // clone()
 
@@ -75,7 +75,7 @@ public class AssociativeArray<K, V> {
         if (size == 0) {
             String str = "{}";
             return str;
-        }
+        }//if
 
         String str = "{ ";
         for (int i = 0; i < size; i++) {
@@ -84,10 +84,10 @@ public class AssociativeArray<K, V> {
                     str = str.concat(pairs[i].key.toString() + ": " + pairs[i].value.toString());
                 } else {
                     str = str.concat(pairs[i].key.toString() + ": " + pairs[i].value.toString() + ", ");
-                }
+                }//else
             } else if (pairs[i] == null) {
                 str = str.concat("Null ");
-            }
+            }//else if
         }
         str = str.concat(" }");
         return str;
@@ -107,7 +107,7 @@ public class AssociativeArray<K, V> {
             expand();
             pairs[size] = new KVPair<>(key, value);
             size++;
-        }
+        }//if
 
         if (size == 0) {
             pairs[0] = new KVPair<>(key, value);
@@ -118,13 +118,13 @@ public class AssociativeArray<K, V> {
                         pairs[i] = new KVPair<>(key, value); // if they find a key value it sets it to the new one and
                                                              // leaves the function
                         return;
-                    }
-                }
-            }
+                    }//if
+                }//if
+            }//for
 
             pairs[size] = new KVPair<>(key, value);
 
-        }
+        }//else
 
         size++;
 
@@ -147,7 +147,7 @@ public class AssociativeArray<K, V> {
             if (String.valueOf(pairs[i].key).compareTo(String.valueOf(key)) == 0) {
                 return pairs[i].value;
             }
-        }
+        }//for
         throw new KeyNotFoundException();
     } // get(K)
 
@@ -161,8 +161,8 @@ public class AssociativeArray<K, V> {
             if (pairs[i] != null) {
                 if (pairs[i].key == key) {
                     return true;
-                }
-            }
+                }//if
+            }//if
         }
         return false; // if the for loop couldn't find the key
     } // hasKey(K)
@@ -180,10 +180,9 @@ public class AssociativeArray<K, V> {
                     pairs[i].value = pairs[size - 1].value;
                     pairs[size - 1] = null;
                     size--;
-                }
-
-            }
-        }
+                }//if
+            }//if
+        }//for
     } // remove(K)
 
     /**
@@ -216,8 +215,8 @@ public class AssociativeArray<K, V> {
         for (int i = 0; i < size; i++) {
             if (pairs[i].key == key) {
                 return ((Integer) (pairs[i].value));
-            }
-        }
+            }//if
+        }//for
         throw new KeyNotFoundException();
     } // find(K)
 
