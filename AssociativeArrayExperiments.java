@@ -6,9 +6,6 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.security.Key;
 
-// import structures.AssociativeArray;
-// import structures.KeyNotFoundException;
-
 /**
  * Experiments with our AssociativeArray class.
  *
