@@ -1,6 +1,7 @@
 package structures;
 
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.security.Key;
@@ -38,28 +39,45 @@ public class AssociativeArrayExperiments {
   // +-------------+
 
   /**
-   * Our first experiment: Associative arrays with strings as both keys 
+   * Our first experiment: Associative arrays with strings as both keys
    * and values.
    */
   public static void expreimentStringsToStrings(PrintWriter pen) {
-    AssociativeArray<String,String> s2s = 
-      new ReportingAssociativeArray<String,String>("s2s", pen);
+    AssociativeArray<String, String> s2s = new ReportingAssociativeArray<String, String>("s2s", pen);
     s2s.size();
     s2s.set("a", "apple");
     s2s.set("A", "aardvark");
     s2s.size();
     s2s.hasKey("a");
     s2s.hasKey("A");
-    try { s2s.get("a"); } catch (Exception e) { }
-    try { s2s.get("A"); } catch (Exception e) { }
+    try {
+      s2s.get("a");
+    } catch (Exception e) {
+    }
+    try {
+      s2s.get("A");
+    } catch (Exception e) {
+    }
     s2s.remove("a");
     s2s.size();
-    try { s2s.get("a"); } catch (Exception e) { }
-    try { s2s.get("A"); } catch (Exception e) { }
+    try {
+      s2s.get("a");
+    } catch (Exception e) {
+    }
+    try {
+      s2s.get("A");
+    } catch (Exception e) {
+    }
     s2s.remove("aardvark");
     s2s.size();
-    try { s2s.get("a"); } catch (Exception e) { }
-    try { s2s.get("A"); } catch (Exception e) { }
+    try {
+      s2s.get("a");
+    } catch (Exception e) {
+    }
+    try {
+      s2s.get("A");
+    } catch (Exception e) {
+    }
   } // expreimentStringsToStrings
 
   /**
@@ -67,18 +85,20 @@ public class AssociativeArrayExperiments {
    * keys and values.
    */
   public static void experimentBigIntToBigInt(PrintWriter pen) {
-    AssociativeArray<BigInteger,BigInteger> b2b =
-      new ReportingAssociativeArray<BigInteger,BigInteger>("b2b", pen);
+    AssociativeArray<BigInteger, BigInteger> b2b = new ReportingAssociativeArray<BigInteger, BigInteger>("b2b", pen);
 
     // Set some values
     for (int i = 0; i < 11; i++) {
-      b2b.set(BigInteger.valueOf(i), BigInteger.valueOf(i*i));
+      b2b.set(BigInteger.valueOf(i), BigInteger.valueOf(i * i));
     } // for
     b2b.size();
 
     // Then get them
     for (int i = 0; i < 11; i++) {
-      try { b2b.get(BigInteger.valueOf(i)); } catch (Exception e) { }
+      try {
+        b2b.get(BigInteger.valueOf(i));
+      } catch (Exception e) {
+      }
     } // for
     b2b.size();
 
@@ -90,7 +110,10 @@ public class AssociativeArrayExperiments {
 
     // Then see what happens when we get them
     for (int i = 0; i < 11; i++) {
-      try { b2b.get(BigInteger.valueOf(i)); } catch (Exception e) { }
+      try {
+        b2b.get(BigInteger.valueOf(i));
+      } catch (Exception e) {
+      }
     } // for
     b2b.size();
 
@@ -102,14 +125,13 @@ public class AssociativeArrayExperiments {
 
     // Then see what happens when we get them
     for (int i = 0; i < 11; i++) {
-      try { b2b.get(BigInteger.valueOf(i)); } catch (Exception e) { }
+      try {
+        b2b.get(BigInteger.valueOf(i));
+      } catch (Exception e) {
+      }
     } // for
     b2b.size();
   }
-
-
-  
-  
 
   // +---------+-----------------------------------------------------
   // | Helpers |

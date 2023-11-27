@@ -1,4 +1,5 @@
 package structures;
+
 import java.io.PrintWriter;
 // import structures.AssociativeArray;
 // import structures.KeyNotFoundException;
@@ -6,10 +7,10 @@ import java.io.PrintWriter;
 /**
  * An extension of the AssociativeArray class that reports each
  * step it takes.
- *
+ * @author Sam Bigham
  * @author Samuel A. Rebelsky
  */
-public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
+public class ReportingAssociativeArray<K, V> extends AssociativeArray<K, V> {
 
   // +--------+------------------------------------------------------
   // | Fields |
@@ -30,7 +31,7 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
   // +--------------+
 
   /**
-   * Create a new ReportingAssociativeArray named `name` that 
+   * Create a new ReportingAssociativeArray named `name` that
    * prints reports of all actions using `pen`.
    */
   public ReportingAssociativeArray(String name, PrintWriter pen) {
@@ -56,7 +57,8 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
    * Get the value associated with key.
    *
    * @throws KeyNotFoundException
-   *   when the key does not appear in the associative array.
+   *                              when the key does not appear in the associative
+   *                              array.
    */
   public V get(K key) throws KeyNotFoundException {
     pen.print(name + ".get(" + key + ") = ");
@@ -83,8 +85,8 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
   } // hasKey(K)
 
   /**
-   * Remove the key/value pair associated with a key.  Future calls
-   * to get(key) will throw an exception.  If the key does not appear
+   * Remove the key/value pair associated with a key. Future calls
+   * to get(key) will throw an exception. If the key does not appear
    * in the associative array, does nothing.
    */
   public void remove(K key) {
@@ -98,7 +100,7 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
    */
   public int size() {
     pen.print(name + ".size() = ");
-    int size = super.size();    // No, not your soda
+    int size = super.size(); // No, not your soda
     pen.println(size);
     return size;
   } // size()

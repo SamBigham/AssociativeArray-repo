@@ -1,4 +1,5 @@
 package structures;
+
 import static java.lang.reflect.Array.newInstance;
 
 /**
@@ -6,7 +7,7 @@ import static java.lang.reflect.Array.newInstance;
  * and values of type V. Associative Arrays store key/value pairs
  * and permit you to look up values by key.
  *
- * @author Your Name Here
+ * @author Sam Bigham
  * @author Samuel A. Rebelsky
  */
 public class AssociativeArray<K, V> {
@@ -29,7 +30,7 @@ public class AssociativeArray<K, V> {
     public int size;
 
     /*
-     * the capacity of the expandable array 
+     * the capacity of the expandable array
      * default is 16, but it can be expanded
      */
     public int capacity;
@@ -52,7 +53,7 @@ public class AssociativeArray<K, V> {
         this.pairs = (KVPair<K, V>[]) newInstance((new KVPair<K, V>()).getClass(),
                 DEFAULT_CAPACITY);
         this.size = 0;
-         this.capacity = DEFAULT_CAPACITY;
+        this.capacity = DEFAULT_CAPACITY;
     } // AssociativeArray()
 
     // +------------------+--------------------------------------------
@@ -60,37 +61,37 @@ public class AssociativeArray<K, V> {
     // +------------------+
 
     public AssociativeArray<K, V> clone() {
-              AssociativeArray<K,V> aa = new AssociativeArray<>();
-         for (int i = 0; i < size; i++){
+        AssociativeArray<K, V> aa = new AssociativeArray<>();
+        for (int i = 0; i < size; i++) {
             aa.set(pairs[i].key, pairs[i].value);
-         }
+        }
         return aa;
-      } // clone()
-      
+    } // clone()
+
     /**
      * Convert the array to a string
      */
-    public String toString(){
-        if(size == 0){
+    public String toString() {
+        if (size == 0) {
             String str = "{}";
             return str;
         }
-        
+
         String str = "{ ";
-        for(int i = 0; i < size; i++){
-             if (pairs[i] != null) {
-                if(i == size - 1){
+        for (int i = 0; i < size; i++) {
+            if (pairs[i] != null) {
+                if (i == size - 1) {
                     str = str.concat(pairs[i].key.toString() + ": " + pairs[i].value.toString());
-                }else{
+                } else {
                     str = str.concat(pairs[i].key.toString() + ": " + pairs[i].value.toString() + ", ");
                 }
-            } else if (pairs[i] == null){
+            } else if (pairs[i] == null) {
                 str = str.concat("Null ");
             }
         }
         str = str.concat(" }");
         return str;
-    }//toString
+    }// toString
 
     // +----------------+----------------------------------------------
     // | Public Methods |
@@ -102,8 +103,7 @@ public class AssociativeArray<K, V> {
      */
     public void set(K key, V value) {
 
-
-        if (size == this.capacity){
+        if (size == this.capacity) {
             expand();
             pairs[size] = new KVPair<>(key, value);
             size++;
@@ -119,11 +119,11 @@ public class AssociativeArray<K, V> {
                                                              // leaves the function
                         return;
                     }
-                } 
+                }
             }
- 
+
             pairs[size] = new KVPair<>(key, value);
-        
+
         }
 
         size++;
@@ -141,17 +141,17 @@ public class AssociativeArray<K, V> {
         for (int i = 0; i < size; i++) {
             // System.out.println(pairs[i].key);
             // System.out.println(key);
-                if (pairs[i].key == key) {
-                    return pairs[i].value;
+            if (pairs[i].key == key) {
+                return pairs[i].value;
             }
-             if(String.valueOf(pairs[i].key).compareTo(String.valueOf(key)) == 0){
-                    return pairs[i].value;
-                }
+            if (String.valueOf(pairs[i].key).compareTo(String.valueOf(key)) == 0) {
+                return pairs[i].value;
+            }
         }
         throw new KeyNotFoundException();
     } // get(K)
 
-    //|| pairs[i].key == String.valueOf(key)
+    // || pairs[i].key == String.valueOf(key)
 
     /**
      * Determine if key appears in the associative array.
@@ -176,12 +176,12 @@ public class AssociativeArray<K, V> {
         for (int i = 0; i < size; i++) {
             if (pairs[i] != null) {
                 if (pairs[i].key == key || pairs[i].key == "1") {
-                    pairs[i].key = pairs[size -1].key;
-                    pairs[i].value = pairs[size -1].value;
+                    pairs[i].key = pairs[size - 1].key;
+                    pairs[i].value = pairs[size - 1].value;
                     pairs[size - 1] = null;
-                    size--; 
+                    size--;
                 }
-                
+
             }
         }
     } // remove(K)
@@ -196,9 +196,9 @@ public class AssociativeArray<K, V> {
     public int capacity() {
         return this.capacity();
     } // size()
-    // +-----------------+---------------------------------------------
-    // | Private Methods |
-    // +-----------------+
+      // +-----------------+---------------------------------------------
+      // | Private Methods |
+      // +-----------------+
 
     /**
      * Expand the underlying array.
@@ -213,9 +213,9 @@ public class AssociativeArray<K, V> {
      * If no such entry is found, throws an exception.
      */
     public int find(K key) throws KeyNotFoundException {
-               for (int i = 0; i < size; i++) {
-                if (pairs[i].key == key ) {
-                    return ((Integer) (pairs[i].value));
+        for (int i = 0; i < size; i++) {
+            if (pairs[i].key == key) {
+                return ((Integer) (pairs[i].value));
             }
         }
         throw new KeyNotFoundException();
